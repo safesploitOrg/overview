@@ -50,7 +50,9 @@ p {
 
 /* Link box styling */
 .link-box {
-    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     padding: 15px;
     background-color: #e8f1fa;
     color: #004085;
@@ -67,6 +69,13 @@ p {
     background-color: #d0e8ff;
     transform: translateY(-3px);
     box-shadow: 0 4px 8px rgba(0, 64, 133, 0.2);
+}
+
+/* Emoji styling */
+.link-box::before {
+    content: attr(data-icon);
+    font-size: 1.5em;
+    margin-right: 10px;
 }
 
 /* Fade-in animation */
