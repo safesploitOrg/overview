@@ -8,22 +8,67 @@
 </head>
 <body>
     <div class="container">
-        <h1>Safesploit Project Overview</h1>
-        <p>Explore the different projects hosted under <strong>*.git.safesploit.com</strong></p>
-        <div class="links">
-            <a href="https://dining.git.safesploit.com/" target="_blank" class="link-box">
-                🍽️ Dining Project
+        <header>
+            <h1>safesploitOrg Project Overview</h1>
+            <p class="description">
+                A central hub for all projects hosted under <strong>*.git.safesploit.com</strong>. Here, you'll find links to each project, providing a convenient way to navigate the safesploitOrg ecosystem.
+            </p>
+            <div class="dropdown">
+                <button class="dropdown-btn" onclick="toggleDropdown()">Useful Resources ▼</button>
+                <div class="dropdown-content" id="dropdownMenu">
+                    <a href="https://icons8.com/" target="_blank">Icons8</a>
+                    <a href="https://github.com/safesploitOrg/overview" target="_blank">GitHub Repo</a>
+                    <a href="https://www.srihash.org/" target="_blank">Srihash</a>
+                </div>
+            </div>
+        </header>
+
+        <div class="links-grid">
+            <a href="https://dining.git.safesploit.com/" target="_blank" class="card">
+                <img src="assets/images/dining-icon-96.png" alt="Dining Project">
+                <h2>Dining Project</h2>
+                <p>Explore dining-related tools and resources.</p>
             </a>
-            <a href="https://toc.git.safesploit.com/" target="_blank" class="link-box">
-                📑 Table of Contents (TOC) Project
+            <a href="https://toc.git.safesploit.com/" target="_blank" class="card">
+                <img src="assets/images/toc-icon-96.png" alt="TOC Project">
+                <h2>Table of Contents (TOC) Project</h2>
+                <p>Structured contents for organised information.</p>
             </a>
-            <a href="https://cron.git.safesploit.com/" target="_blank" class="link-box">
-                ⏰ Cron Project
+            <a href="https://cron.git.safesploit.com/" target="_blank" class="card">
+                <img src="assets/images/cron-icon-96.png" alt="Cron Project">
+                <h2>Cron Project</h2>
+                <p>Manage scheduled tasks efficiently.</p>
             </a>
-            <a href="https://pgp.git.safesploit.com/" target="_blank" class="link-box">
-                🔐 PGP Project
+            <a href="https://pgp.git.safesploit.com/" target="_blank" class="card">
+                <img src="assets/images/pgp-icon-96.png" alt="PGP Project">
+                <h2>PGP Project</h2>
+                <p>Security tools for PGP encryption.</p>
+            </a>
+            <a href="https://qrcode.git.safesploit.com/" target="_blank" class="card">
+                <img src="assets/images/qrcode-icon-100.png" alt="QR Code Project">
+                <h2>QR Code Project</h2>
+                <p>Create and manage QR codes for various applications.</p>
+            </a>
+            <a href="https://vlsm.git.safesploit.com/" target="_blank" class="card">
+                <img src="assets/images/vlsm-icon-68.png" alt="VLSM Project">
+                <h2>VLSM Project</h2>
+                <p>Variable Length Subnet Masking tools and resources.</p>
+            </a>
+            <a href="https://safesploitorg.github.io/securbrowser-toolkit/" target="_blank" class="card">
+                <img src="assets/images/securbrowser-icon-96.png" alt="SecurBrowser Toolkit">
+                <h2>SecurBrowser Toolkit</h2>
+                <p>Secure browsing toolkit for enhanced privacy and security.</p>
             </a>
         </div>
+        
+        <footer>
+            <p class="watermark">© <span id="currentYear"></span> safesploitOrg</p>
+            <a href="https://github.com/safesploitOrg/overview" target="_blank" class="github-link">
+                <img src="assets/images/github-icon.svg" alt="GitHub">
+            </a>
+        </footer>
     </div>
+    
+    <script src="assets/js/script.js"></script>
 </body>
 </html>

@@ -1,4 +1,4 @@
-/* Reset and basic styling */
+/* Basic Reset */
 * {
     margin: 0;
     padding: 0;
@@ -6,80 +6,148 @@
 }
 
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f0f2f5;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    background-color: #f9fafb;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    min-height: 100vh;
     color: #333;
 }
 
-/* Container styling */
+/* Container and Header */
 .container {
-    max-width: 700px;
-    text-align: center;
-    padding: 30px;
+    max-width: 800px;
+    padding: 20px;
     background-color: #fff;
     border-radius: 8px;
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
-    border: 1px solid #e0e0e0;
-    animation: fadeIn 1s ease-in-out;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    text-align: center;
 }
 
-/* Heading styling */
+header {
+    margin-bottom: 20px;
+    position: relative;
+}
+
 h1 {
     color: #004085;
     font-size: 2em;
-    margin-bottom: 15px;
+    font-weight: 700;
 }
 
-/* Description text */
-p {
-    color: #555;
+.description {
+    color: #666;
     font-size: 1.1em;
-    margin-bottom: 25px;
+    margin-top: 10px;
 }
 
-/* Link container styling */
-.links {
+/* Dropdown Menu */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-btn {
+    background-color: #004085;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9em;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #fff;
+    min-width: 160px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+    padding: 10px 0;
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: #004085;
+    padding: 8px 16px;
+    text-decoration: none;
+    display: block;
+    transition: background-color 0.3s;
+}
+
+.dropdown-content a:hover {
+    background-color: #e8f1fa;
+}
+
+/* Show dropdown on click */
+.show {
+    display: block;
+}
+
+/* Link Cards */
+.links-grid {
+    display: grid;
+    gap: 15px;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+}
+
+.card {
+    background-color: #e8f1fa;
+    padding: 15px;
+    border-radius: 8px;
+    text-decoration: none;
+    color: #004085;
+    box-shadow: 0 4px 8px rgba(0, 64, 133, 0.15);
+    transition: transform 0.3s, box-shadow 0.3s;
     display: flex;
     flex-direction: column;
-    gap: 15px;
-}
-
-/* Link box styling */
-.link-box {
-    display: flex;
     align-items: center;
-    justify-content: center;
-    padding: 15px;
-    background-color: #e8f1fa;
-    color: #004085;
-    text-decoration: none;
+}
+
+.card img {
+    width: 40px;
+    height: 40px;
+    margin-bottom: 10px;
+}
+
+.card h2 {
     font-size: 1.2em;
-    font-weight: bold;
-    border-radius: 4px;
-    border: 1px solid #cce4f7;
-    transition: background-color 0.3s, transform 0.2s;
+    margin-bottom: 5px;
 }
 
-/* Link hover effect */
-.link-box:hover {
-    background-color: #d0e8ff;
-    transform: translateY(-3px);
-    box-shadow: 0 4px 8px rgba(0, 64, 133, 0.2);
+.card p {
+    font-size: 0.9em;
+    color: #555;
 }
 
-/* Emoji styling */
-.link-box::before {
-    content: attr(data-icon);
-    font-size: 1.5em;
-    margin-right: 10px;
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 64, 133, 0.25);
 }
 
-/* Fade-in animation */
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
+/* Footer */
+footer {
+    margin-top: 20px;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.watermark {
+    font-size: 0.9em;
+    color: #999;
+}
+
+.github-link img {
+    width: 24px;
+    height: 24px;
+    transition: opacity 0.2s;
+}
+
+.github-link:hover img {
+    opacity: 0.7;
 }
