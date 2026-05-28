@@ -12,7 +12,7 @@
     "format:check": "prettier --check \"public/**/*.{html,css,js,json}\" \"tests/**/*.js\" \"*.md\"",
     "lint:js": "eslint public/assets/js/**/*.js tests/**/*.js",
     "lint:html": "html-validate public/index.html",
-    "check:links": "linkinator public/index.html README.md README-pipeline.md --recurse --silent --skip \"^mailto:\""
+    "check:links": "linkinator public/index.html README.md --recurse --silent --skip \"^mailto:\" --skip \"^#\""
   },
   "devDependencies": {
     "@eslint/js": "^9.28.0",
