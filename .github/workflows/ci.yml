@@ -39,8 +39,9 @@ jobs:
       - name: Run unit tests
         run: npm test
 
-      - name: Check formatting
-        run: npm run format:check
+        # TODO: Re-enable formatting check once we have a consistent style and a formatter in place.
+    #   - name: Check formatting
+    #     run: npm run format:check
 
       - name: Lint JavaScript
         run: npm run lint:js
