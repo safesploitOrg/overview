@@ -1,0 +1,27 @@
+{
+  "name": "overview",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Static project overview site for safesploitOrg.",
+  "scripts": {
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "ci": "npm run test && npm run format:check && npm run lint:js && npm run lint:html && npm run check:links",
+    "format": "prettier --write \"public/**/*.{html,css,js,json}\" \"tests/**/*.js\" \"*.md\"",
+    "format:check": "prettier --check \"public/**/*.{html,css,js,json}\" \"tests/**/*.js\" \"*.md\"",
+    "lint:js": "eslint public/assets/js/**/*.js tests/**/*.js",
+    "lint:html": "html-validate public/index.html",
+    "check:links": "linkinator public/index.html README.md --recurse --silent --skip \"^mailto:\" --skip \"^#\""
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.28.0",
+    "eslint": "^9.28.0",
+    "globals": "^16.2.0",
+    "html-validate": "^9.7.1",
+    "jsdom": "^26.1.0",
+    "prettier": "^3.5.3",
+    "vitest": "^3.2.4",
+    "linkinator": "^6.1.2"
+  }
+}
