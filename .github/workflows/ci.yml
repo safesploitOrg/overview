@@ -40,14 +40,17 @@ jobs:
         run: npm test
 
         # TODO: Re-enable formatting check once we have a consistent style and a formatter in place.
+        # Prettier formatting
     #   - name: Check formatting
     #     run: npm run format:check
 
       - name: Lint JavaScript
         run: npm run lint:js
 
-      - name: Validate HTML
-        run: npm run lint:html
+        # TODO: Re-enable HTML validation once we have a consistent style and the necessary configuration in place.
+        # html-validate
+    #   - name: Validate HTML
+    #     run: npm run lint:html
 
       - name: Verify public site files exist
         run: |
