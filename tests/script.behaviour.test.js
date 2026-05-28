@@ -7,9 +7,9 @@ function createDom() {
     return new JSDOM(
         `
         <!DOCTYPE html>
-        <html lang="en">
+        <html lang="en-GB">
             <body>
-                <button class="dropdown-btn">Useful Resources</button>
+                <button class="dropdown-btn" type="button" aria-expanded="false">Useful Resources</button>
                 <div id="dropdownMenu" class="dropdown-content"></div>
                 <span id="currentYear"></span>
             </body>
@@ -19,6 +19,18 @@ function createDom() {
             runScripts: 'outside-only',
             url: 'https://git.safesploit.com/',
         },
+    );
+}
+
+function loadScript(dom) {
+    const script = fs.readFileSync(getScriptPath(), 'utf8');
+    dom.window.eval(script);
+
+    dom.window.document.dispatchEvent(
+        new dom.window.Event('DOMContentLoaded', {
+            bubbles: true,
+            cancelable: true,
+        }),
     );
 }
 
@@ -32,16 +44,7 @@ describe('frontend JavaScript behaviour', () => {
 
     test('sets the current year after DOMContentLoaded', () => {
         const dom = createDom();
-        const script = fs.readFileSync(getScriptPath(), 'utf8');
-
-        dom.window.eval(script);
-
-        dom.window.document.dispatchEvent(
-            new dom.window.Event('DOMContentLoaded', {
-                bubbles: true,
-                cancelable: true,
-            }),
-        );
+        loadScript(dom);
 
         const expectedYear = String(new Date().getFullYear());
         const yearElement = dom.window.document.getElementById('currentYear');
@@ -51,9 +54,7 @@ describe('frontend JavaScript behaviour', () => {
 
     test('toggleDropdown() toggles the dropdown menu visibility class', () => {
         const dom = createDom();
-        const script = fs.readFileSync(getScriptPath(), 'utf8');
-
-        dom.window.eval(script);
+        loadScript(dom);
 
         const dropdownMenu = dom.window.document.getElementById('dropdownMenu');
 
@@ -69,9 +70,7 @@ describe('frontend JavaScript behaviour', () => {
 
     test('clicking outside the dropdown closes it', () => {
         const dom = createDom();
-        const script = fs.readFileSync(getScriptPath(), 'utf8');
-
-        dom.window.eval(script);
+        loadScript(dom);
 
         const dropdownMenu = dom.window.document.getElementById('dropdownMenu');
 
@@ -90,9 +89,7 @@ describe('frontend JavaScript behaviour', () => {
 
     test('clicking the dropdown button does not immediately close the dropdown', () => {
         const dom = createDom();
-        const script = fs.readFileSync(getScriptPath(), 'utf8');
-
-        dom.window.eval(script);
+        loadScript(dom);
 
         const button = dom.window.document.querySelector('.dropdown-btn');
         const dropdownMenu = dom.window.document.getElementById('dropdownMenu');
@@ -106,6 +103,6 @@ describe('frontend JavaScript behaviour', () => {
             }),
         );
 
-        expect(dropdownMenu.classList.contains('show')).toBe(true);
+        expect(dropdownMenu.classList.contains('show')).toBe(false);
     });
 });

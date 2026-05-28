@@ -3,6 +3,9 @@ const DROPDOWN_BUTTON_SELECTOR = '.dropdown-btn';
 const DROPDOWN_MENU_ID = 'dropdownMenu';
 const CURRENT_YEAR_ID = 'currentYear';
 
+let isDropdownButtonInitialised = false;
+let areGlobalDropdownListenersInitialised = false;
+
 function setCurrentYear() {
     const yearElement = document.getElementById(CURRENT_YEAR_ID);
 
@@ -75,10 +78,21 @@ function handleDocumentKeydown(event) {
     }
 }
 
-function initialiseDropdown() {
+function initialiseGlobalDropdownListeners() {
+    if (areGlobalDropdownListenersInitialised) {
+        return;
+    }
+
+    document.addEventListener('click', handleDocumentClick);
+    document.addEventListener('keydown', handleDocumentKeydown);
+
+    areGlobalDropdownListenersInitialised = true;
+}
+
+function initialiseDropdownButton() {
     const dropdownButton = getDropdownButton();
 
-    if (!dropdownButton) {
+    if (!dropdownButton || isDropdownButtonInitialised) {
         return;
     }
 
@@ -86,18 +100,25 @@ function initialiseDropdown() {
         event.stopPropagation();
         toggleDropdown();
     });
+
+    isDropdownButtonInitialised = true;
 }
 
 function initialiseSite() {
     setCurrentYear();
-    initialiseDropdown();
-
-    document.addEventListener('click', handleDocumentClick);
-    document.addEventListener('keydown', handleDocumentKeydown);
+    initialiseDropdownButton();
+    initialiseGlobalDropdownListeners();
 }
 
-document.addEventListener('DOMContentLoaded', initialiseSite);
+initialiseGlobalDropdownListeners();
+
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initialiseSite, { once: true });
+} else {
+    initialiseSite();
+}
 
 window.setCurrentYear = setCurrentYear;
 window.toggleDropdown = toggleDropdown;
 window.closeDropdown = closeDropdown;
+window.initialiseSite = initialiseSite;
