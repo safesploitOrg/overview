@@ -25,57 +25,214 @@
 					safesploitOrg ecosystem.
 				</p>
 
-				<nav class="dropdown" aria-label="Useful resources">
-					<button
-						class="dropdown-btn"
-						id="resourcesToggle"
-						type="button"
-						aria-haspopup="true"
-						aria-expanded="false"
-						aria-controls="dropdownMenu"
-					>
-						Useful Resources
-						<span aria-hidden="true">▼</span>
-					</button>
+				<div class="header-actions">
+					<nav class="dropdown" aria-label="Useful resources">
+						<button
+							class="dropdown-btn"
+							id="resourcesToggle"
+							type="button"
+							aria-haspopup="true"
+							aria-expanded="false"
+							aria-controls="resourcesMenu"
+						>
+							Useful Resources
+							<span aria-hidden="true">▼</span>
+						</button>
 
-					<div class="dropdown-content" id="dropdownMenu">
-						<a
-							href="https://icons8.com/"
-							target="_blank"
-							rel="noopener noreferrer"
+						<div class="dropdown-content" id="resourcesMenu">
+							<a
+								href="https://icons8.com/"
+								target="_blank"
+								rel="noopener noreferrer"
+							>
+								Icons8
+							</a>
+							<a
+								href="https://github.com/safesploitOrg/overview"
+								target="_blank"
+								rel="noopener noreferrer"
+							>
+								GitHub Repo
+							</a>
+							<a
+								href="https://socialify.git.ci/"
+								target="_blank"
+								rel="noopener noreferrer"
+							>
+								GitHub Socialify
+							</a>
+							<a
+								href="https://www.srihash.org/"
+								target="_blank"
+								rel="noopener noreferrer"
+							>
+								Srihash
+							</a>
+							<a
+								href="https://stackedit.io/app#"
+								target="_blank"
+								rel="noopener noreferrer"
+							>
+								StackEdit - Online Markdown/WYSIWYG Editor
+							</a>
+						</div>
+					</nav>
+
+					<nav class="dropdown" aria-label="GitHub repositories">
+						<button
+							class="dropdown-btn"
+							id="repositoriesToggle"
+							type="button"
+							aria-haspopup="true"
+							aria-expanded="false"
+							aria-controls="repositoriesMenu"
 						>
-							Icons8
-						</a>
-						<a
-							href="https://github.com/safesploitOrg/overview"
-							target="_blank"
-							rel="noopener noreferrer"
+							GitHub Repositories
+							<span aria-hidden="true">▼</span>
+						</button>
+
+						<div
+							class="dropdown-content repository-menu"
+							id="repositoriesMenu"
 						>
-							GitHub Repo
-						</a>
-						<a
-							href="https://socialify.git.ci/"
-							target="_blank"
-							rel="noopener noreferrer"
-						>
-							GitHub Socialify
-						</a>
-						<a
-							href="https://www.srihash.org/"
-							target="_blank"
-							rel="noopener noreferrer"
-						>
-							Srihash
-						</a>
-						<a
-							href="https://stackedit.io/app#"
-							target="_blank"
-							rel="noopener noreferrer"
-						>
-							StackEdit - Online Markdown/WYSIWYG Editor
-						</a>
-					</div>
-				</nav>
+							<section class="repository-group">
+								<h2>Public repositories</h2>
+								<a
+									href="https://github.com/safesploitOrg/overview"
+									target="_blank"
+									rel="noopener noreferrer"
+								>
+									overview
+									<span class="repo-note">(this repo)</span>
+								</a>
+								<a
+									href="https://github.com/safesploitOrg/proxmox-userscripts"
+									target="_blank"
+									rel="noopener noreferrer"
+								>
+									proxmox-userscripts
+								</a>
+								<a
+									href="https://github.com/safesploitOrg/homelab"
+									target="_blank"
+									rel="noopener noreferrer"
+								>
+									homelab
+								</a>
+								<a
+									href="https://github.com/safesploitOrg/docs"
+									target="_blank"
+									rel="noopener noreferrer"
+								>
+									docs
+								</a>
+								<a
+									href="https://github.com/safesploitOrg/hardened-platform-as-code"
+									target="_blank"
+									rel="noopener noreferrer"
+								>
+									hardened-platform-as-code
+								</a>
+							</section>
+
+							<section class="repository-group">
+								<h2>Infrastructure &amp; Automation</h2>
+								<a
+									href="https://github.com/safesploitOrg/kickstarter-scripts"
+									target="_blank"
+									rel="noopener noreferrer"
+								>
+									🔒 kickstarter-scripts
+								</a>
+								<a
+									href="https://github.com/safesploitOrg/network-scripts"
+									target="_blank"
+									rel="noopener noreferrer"
+								>
+									🔒 network-scripts
+								</a>
+								<a
+									href="https://github.com/safesploitOrg/dns-configs"
+									target="_blank"
+									rel="noopener noreferrer"
+								>
+									🔒 dns-configs
+								</a>
+								<a
+									href="https://github.com/safesploitOrg/ansible-configs"
+									target="_blank"
+									rel="noopener noreferrer"
+								>
+									🔒 ansible-configs
+								</a>
+								<a
+									href="https://github.com/safesploitOrg/terraform-configs"
+									target="_blank"
+									rel="noopener noreferrer"
+								>
+									🔒 terraform-configs
+								</a>
+								<a
+									href="https://github.com/safesploitOrg/ci-cd-pipelines"
+									target="_blank"
+									rel="noopener noreferrer"
+								>
+									ci-cd-pipelines
+								</a>
+								<a
+									href="https://github.com/safesploitOrg/k8s-configs"
+									target="_blank"
+									rel="noopener noreferrer"
+								>
+									🔒 k8s-configs
+								</a>
+								<a
+									href="https://github.com/safesploitOrg/.dotfiles"
+									target="_blank"
+									rel="noopener noreferrer"
+								>
+									🔒 .dotfiles
+								</a>
+							</section>
+
+							<section class="repository-group">
+								<h2>Web &amp; Documentation</h2>
+								<a
+									href="https://github.com/safesploitOrg/confluence-mirror"
+									target="_blank"
+									rel="noopener noreferrer"
+								>
+									🔒 confluence-mirror
+								</a>
+								<a
+									href="https://github.com/safesploitOrg/hugo-static"
+									target="_blank"
+									rel="noopener noreferrer"
+								>
+									🔒 hugo-static
+								</a>
+							</section>
+
+							<section class="repository-group">
+								<h2>Labs (Demos)</h2>
+								<a
+									href="https://github.com/safesploitOrg/iam-homelab"
+									target="_blank"
+									rel="noopener noreferrer"
+								>
+									🔒 iam-homelab
+								</a>
+								<a
+									href="https://github.com/safesploitOrg/project1-ci-cd-test"
+									target="_blank"
+									rel="noopener noreferrer"
+								>
+									🔒 project1-ci-cd-test
+								</a>
+							</section>
+						</div>
+					</nav>
+				</div>
 			</header>
 
 			<main>
@@ -389,9 +546,7 @@
 								alt="PBS to Slurm Converter"
 							/>
 							<h2>PBS to Slurm Converter</h2>
-							<p>
-								Convert PBS scripts to Slurm scripts
-							</p>
+							<p>Convert PBS scripts to Slurm scripts</p>
 						</a>
 						<a
 							href="https://safesploitorg.github.io/openwrt-firewall-visualiser/"
@@ -404,9 +559,7 @@
 								alt="OpenWRT Firewall Visualiser"
 							/>
 							<h2>OpenWRT Firewall Visualiser</h2>
-							<p>
-								Visualise and manage OpenWRT firewall rules.
-							</p>
+							<p>Visualise and manage OpenWRT firewall rules.</p>
 						</a>
 						<a
 							href="https://safesploitorg.github.io/domain-checker/"
@@ -420,7 +573,8 @@
 							/>
 							<h2>Domain Checker</h2>
 							<p>
-								Static-first domain checker with custom DNS, HTTPS probing, backend support.
+								Static-first domain checker with custom DNS,
+								HTTPS probing, backend support.
 							</p>
 						</a>
 						<!--  -->

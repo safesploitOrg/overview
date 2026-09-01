@@ -9,8 +9,14 @@ function createDom() {
         <!DOCTYPE html>
         <html lang="en-GB">
             <body>
-                <button class="dropdown-btn" type="button" aria-expanded="false">Useful Resources</button>
-                <div id="dropdownMenu" class="dropdown-content"></div>
+                <nav class="dropdown">
+                    <button class="dropdown-btn" type="button" aria-expanded="false" aria-controls="resourcesMenu">Useful Resources</button>
+                    <div id="resourcesMenu" class="dropdown-content"></div>
+                </nav>
+                <nav class="dropdown">
+                    <button class="dropdown-btn" type="button" aria-expanded="false" aria-controls="repositoriesMenu">GitHub Repositories</button>
+                    <div id="repositoriesMenu" class="dropdown-content"></div>
+                </nav>
                 <span id="currentYear"></span>
             </body>
         </html>
@@ -56,7 +62,8 @@ describe("frontend JavaScript behaviour", () => {
 		const dom = createDom();
 		loadScript(dom);
 
-		const dropdownMenu = dom.window.document.getElementById("dropdownMenu");
+		const dropdownMenu =
+			dom.window.document.getElementById("resourcesMenu");
 
 		expect(typeof dom.window.toggleDropdown).toBe("function");
 		expect(dropdownMenu.classList.contains("show")).toBe(false);
@@ -72,7 +79,8 @@ describe("frontend JavaScript behaviour", () => {
 		const dom = createDom();
 		loadScript(dom);
 
-		const dropdownMenu = dom.window.document.getElementById("dropdownMenu");
+		const dropdownMenu =
+			dom.window.document.getElementById("resourcesMenu");
 
 		dropdownMenu.classList.add("show");
 		expect(dropdownMenu.classList.contains("show")).toBe(true);
@@ -87,12 +95,13 @@ describe("frontend JavaScript behaviour", () => {
 		expect(dropdownMenu.classList.contains("show")).toBe(false);
 	});
 
-	test("clicking the dropdown button does not immediately close the dropdown", () => {
+	test("clicking an open dropdown button closes its menu", () => {
 		const dom = createDom();
 		loadScript(dom);
 
 		const button = dom.window.document.querySelector(".dropdown-btn");
-		const dropdownMenu = dom.window.document.getElementById("dropdownMenu");
+		const dropdownMenu =
+			dom.window.document.getElementById("resourcesMenu");
 
 		dropdownMenu.classList.add("show");
 
@@ -104,5 +113,28 @@ describe("frontend JavaScript behaviour", () => {
 		);
 
 		expect(dropdownMenu.classList.contains("show")).toBe(false);
+	});
+
+	test("opening one dropdown closes the other", () => {
+		const dom = createDom();
+		loadScript(dom);
+
+		const [resourcesButton, repositoriesButton] = [
+			...dom.window.document.querySelectorAll(".dropdown-btn"),
+		];
+		const resourcesMenu =
+			dom.window.document.getElementById("resourcesMenu");
+		const repositoriesMenu =
+			dom.window.document.getElementById("repositoriesMenu");
+
+		resourcesButton.click();
+		expect(resourcesMenu.classList.contains("show")).toBe(true);
+		expect(resourcesButton.getAttribute("aria-expanded")).toBe("true");
+
+		repositoriesButton.click();
+		expect(resourcesMenu.classList.contains("show")).toBe(false);
+		expect(repositoriesMenu.classList.contains("show")).toBe(true);
+		expect(resourcesButton.getAttribute("aria-expanded")).toBe("false");
+		expect(repositoriesButton.getAttribute("aria-expanded")).toBe("true");
 	});
 });

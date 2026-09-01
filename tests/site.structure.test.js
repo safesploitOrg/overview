@@ -116,4 +116,26 @@ describe("static site structure", () => {
 			expect(fs.existsSync(resolveSiteAsset(src))).toBe(true);
 		}
 	});
+
+	test("repository shortcuts are grouped and identify private repositories", () => {
+		const document = getDocument();
+		const repositoryMenu = document.getElementById("repositoriesMenu");
+		const groupHeadings = [
+			...repositoryMenu.querySelectorAll(".repository-group h2"),
+		].map((heading) => heading.textContent.trim());
+		const repositoryLinks = [...repositoryMenu.querySelectorAll("a[href]")];
+
+		expect(groupHeadings).toEqual([
+			"Public repositories",
+			"Infrastructure & Automation",
+			"Web & Documentation",
+			"Labs (Demos)",
+		]);
+		expect(repositoryLinks).toHaveLength(17);
+		expect(
+			repositoryLinks.filter((link) =>
+				link.textContent.trim().startsWith("🔒"),
+			),
+		).toHaveLength(12);
+	});
 });
