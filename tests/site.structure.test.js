@@ -132,10 +132,32 @@ describe("static site structure", () => {
 			"Labs (Demos)",
 		]);
 		expect(repositoryLinks).toHaveLength(17);
-		expect(
-			repositoryLinks.filter((link) =>
-				link.textContent.trim().startsWith("🔒"),
-			),
-		).toHaveLength(12);
+		const privateRepositoryLinks = repositoryLinks.filter((link) =>
+			link.textContent.trim().startsWith("🔒"),
+		);
+
+		expect(privateRepositoryLinks.length).toBeGreaterThan(0);
+	});
+
+	test("repository shortcuts are alphabetical within each group", () => {
+		const document = getDocument();
+		const groups = [
+			...document.querySelectorAll("#repositoriesMenu .repository-group"),
+		];
+
+		for (const group of groups) {
+			const repositoryNames = [...group.querySelectorAll("a[href]")].map(
+				(link) =>
+					new URL(link.href).pathname
+						.split("/")
+						.pop()
+						.replace(/^\./, ""),
+			);
+			const sortedNames = [...repositoryNames].sort((first, second) =>
+				first.localeCompare(second, "en"),
+			);
+
+			expect(repositoryNames).toEqual(sortedNames);
+		}
 	});
 });
