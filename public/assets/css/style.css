@@ -45,9 +45,19 @@ h1 {
 }
 
 /* Dropdown Menu */
+.header-actions {
+	display: flex;
+	justify-content: center;
+	align-items: flex-start;
+	flex-wrap: wrap;
+	gap: 10px;
+	margin-top: 16px;
+}
+
 .dropdown {
 	position: relative;
 	display: inline-block;
+	text-align: left;
 }
 
 .dropdown-btn {
@@ -60,6 +70,17 @@ h1 {
 	font-size: 0.9em;
 }
 
+.dropdown-btn:hover,
+.dropdown-btn:focus-visible {
+	background-color: #0056b3;
+}
+
+.dropdown-btn:focus-visible,
+.dropdown-content a:focus-visible {
+	outline: 3px solid #80bdff;
+	outline-offset: 2px;
+}
+
 .dropdown-content {
 	display: none;
 	position: absolute;
@@ -68,7 +89,7 @@ h1 {
 	box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 	border-radius: 4px;
 	padding: 10px 0;
-	z-index: 1;
+	z-index: 10;
 }
 
 .dropdown-content a {
@@ -83,9 +104,65 @@ h1 {
 	background-color: #e8f1fa;
 }
 
+.repository-menu {
+	right: 0;
+	width: min(380px, calc(100vw - 40px));
+	max-height: min(70vh, 620px);
+	overflow-y: auto;
+}
+
+.repository-group + .repository-group {
+	border-top: 1px solid #d8e2ec;
+	margin-top: 8px;
+	padding-top: 8px;
+}
+
+.repository-group h2 {
+	color: #4d5966;
+	font-size: 0.75rem;
+	font-weight: 700;
+	letter-spacing: 0.04em;
+	padding: 4px 16px;
+	text-transform: uppercase;
+}
+
+.repository-menu a {
+	font-size: 0.9rem;
+	overflow-wrap: anywhere;
+}
+
+.repo-note {
+	color: #6c757d;
+	font-size: 0.85em;
+}
+
 /* Show dropdown on click */
 .show {
 	display: block;
+}
+
+@media (max-width: 520px) {
+	.header-actions {
+		align-items: stretch;
+		flex-direction: column;
+	}
+
+	.dropdown,
+	.dropdown-btn {
+		width: 100%;
+	}
+
+	.dropdown-btn {
+		display: flex;
+		justify-content: space-between;
+	}
+
+	.dropdown-content,
+	.repository-menu {
+		left: 0;
+		right: auto;
+		width: 100%;
+	}
 }
 
 /* Link Cards */

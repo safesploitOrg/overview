@@ -116,4 +116,48 @@ describe("static site structure", () => {
 			expect(fs.existsSync(resolveSiteAsset(src))).toBe(true);
 		}
 	});
+
+	test("repository shortcuts are grouped and identify private repositories", () => {
+		const document = getDocument();
+		const repositoryMenu = document.getElementById("repositoriesMenu");
+		const groupHeadings = [
+			...repositoryMenu.querySelectorAll(".repository-group h2"),
+		].map((heading) => heading.textContent.trim());
+		const repositoryLinks = [...repositoryMenu.querySelectorAll("a[href]")];
+
+		expect(groupHeadings).toEqual([
+			"Public repositories",
+			"Infrastructure & Automation",
+			"Web & Documentation",
+			"Labs (Demos)",
+		]);
+		expect(repositoryLinks).toHaveLength(17);
+		const privateRepositoryLinks = repositoryLinks.filter((link) =>
+			link.textContent.trim().startsWith("🔒"),
+		);
+
+		expect(privateRepositoryLinks.length).toBeGreaterThan(0);
+	});
+
+	test("repository shortcuts are alphabetical within each group", () => {
+		const document = getDocument();
+		const groups = [
+			...document.querySelectorAll("#repositoriesMenu .repository-group"),
+		];
+
+		for (const group of groups) {
+			const repositoryNames = [...group.querySelectorAll("a[href]")].map(
+				(link) =>
+					new URL(link.href).pathname
+						.split("/")
+						.pop()
+						.replace(/^\./, ""),
+			);
+			const sortedNames = [...repositoryNames].sort((first, second) =>
+				first.localeCompare(second, "en"),
+			);
+
+			expect(repositoryNames).toEqual(sortedNames);
+		}
+	});
 });

@@ -1,0 +1,18 @@
+{
+  "skip": [
+    "^mailto:",
+    "^#",
+    "^https://icons8\\.com/",
+    "^https://github\\.com/safesploitOrg/\\.dotfiles(?:[/?#]|$)",
+    "^https://github\\.com/safesploitOrg/ansible-configs(?:[/?#]|$)",
+    "^https://github\\.com/safesploitOrg/confluence-mirror(?:[/?#]|$)",
+    "^https://github\\.com/safesploitOrg/dns-configs(?:[/?#]|$)",
+    "^https://github\\.com/safesploitOrg/hugo-static(?:[/?#]|$)",
+    "^https://github\\.com/safesploitOrg/iam-homelab(?:[/?#]|$)",
+    "^https://github\\.com/safesploitOrg/k8s-configs(?:[/?#]|$)",
+    "^https://github\\.com/safesploitOrg/kickstarter-scripts(?:[/?#]|$)",
+    "^https://github\\.com/safesploitOrg/network-scripts(?:[/?#]|$)",
+    "^https://github\\.com/safesploitOrg/project1-ci-cd-test(?:[/?#]|$)",
+    "^https://github\\.com/safesploitOrg/terraform-configs(?:[/?#]|$)"
+  ]
+}
