@@ -4,6 +4,7 @@
     "^#",
     "^https://icons8\\.com/",
     "^https://github\\.com/safesploitOrg/\\.dotfiles(?:[/?#]|$)",
+    "^https://github\\.com/safesploitOrg/\\ai-workspace(?:[/?#]|$)",
     "^https://github\\.com/safesploitOrg/ansible-configs(?:[/?#]|$)",
     "^https://github\\.com/safesploitOrg/confluence-mirror(?:[/?#]|$)",
     "^https://github\\.com/safesploitOrg/dns-configs(?:[/?#]|$)",
