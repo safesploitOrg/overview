@@ -131,7 +131,7 @@ describe("static site structure", () => {
 			"Web & Documentation",
 			"Labs (Demos)",
 		]);
-		expect(repositoryLinks).toHaveLength(17);
+		expect(repositoryLinks).toHaveLength(18);
 		const privateRepositoryLinks = repositoryLinks.filter((link) =>
 			link.textContent.trim().startsWith("🔒"),
 		);
